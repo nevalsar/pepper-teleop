@@ -95,7 +95,7 @@ class Pepper:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         prog="teleop.py",
-        description="Teleoperation script for Pepper Robot",
+        description="Teleoperation script for Pepper Robot.",
     )
     parser.add_argument("--ip", type=str, required=True, help="Pepper's IP address")
     parser.add_argument(
