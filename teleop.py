@@ -1,5 +1,4 @@
 import argparse
-from pynput import keyboard
 import qi
 import sys
 from time import sleep
@@ -55,21 +54,21 @@ class Pepper:
     def on_keypress(self, key):
         try:
             print("alphanumeric key {0} pressed".format(key.char))
-            if key.char == "w":
+            if key == "w":
                 self.move_forward(1)
                 self.sleep(3)
-            elif key.char == "s":
+            elif key == "s":
                 self.move_forward(-1)
                 self.sleep(3)
-            elif key.char == "a":
+            elif key == "a":
                 self.turn_around(1)
                 self.sleep(1.3)
-            elif key.char == "d":
+            elif key == "d":
                 self.turn_around(-1)
                 self.sleep(1.3)
-            elif key.char == "1":
+            elif key == "1":
                 self.speak("Hi")
-            elif key.char == "2":
+            elif key == "2":
                 self.speak("Bye")
         except AttributeError:
             print("special key {0} pressed".format(key))
@@ -81,15 +80,13 @@ class Pepper:
         )
         print("Press Ctrl+C to exit.")
         self.disable_collision_protection()
-        listener = keyboard.Listener(on_press=self.on_keypress)
-        listener.start()
         try:
             while True:
-                pass
+                key = input("Enter a key: ")
+                self.on_keypress(key)
         except KeyboardInterrupt:
-            listener.stop()
             self.enable_collision_protection()
-            pass
+            print("Enabling collision protection and exiting.")
 
 
 if __name__ == "__main__":
