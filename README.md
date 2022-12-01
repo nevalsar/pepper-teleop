@@ -2,6 +2,18 @@
 
 Simple teleoperation script for the [Pepper Robot][1] using Python.
 
+## Instructions
+
+- Turn on the Pepper robot. Make a note of the robot IP once boot is complete.
+- Connect to same network as Pepper.
+- Run the teleop script:
+``` sh
+python3 teleop.py --ip <robot_ip>
+```
+
+- Move forward and backward using 'w' and 's'. Turn left and right using 'a' and 'd'. Speak voice lines using '1' and '2' keys.
+- Modify/extend teleop.py as needed.
+
 ## Usage
 
 ``` sh
@@ -17,7 +29,7 @@ optional arguments:
 
 ## Dependencies
 
-- Python 3.5
+- Python 3.5.10
 - [qi][2]
 - [pynput][3]
 
